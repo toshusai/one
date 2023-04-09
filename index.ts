@@ -226,8 +226,6 @@ export class One {
             parentNode.childNodes,
             forEnd
           );
-          // let endIndex = children.indexOf(forEnd);
-          // let startIndex = children.indexOf(forStart);
           for (let i = endIndex - 1; i > startIndex + 1; i--) {
             parentNode.removeChild(parentNode.childNodes[i]);
           }
@@ -339,7 +337,6 @@ export class One {
     const l = el.childNodes.length;
     const allChildren: ChildNode[] = [];
     let newSlots: Record<string, ChildNode[]> = {};
-    // 途中でchildNodesの長さが変わるので、一旦配列に入れてから処理する
     for (let i = 0; i < l; i++) {
       const child = el.childNodes[i];
       allChildren.push(child);

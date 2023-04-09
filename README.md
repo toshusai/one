@@ -2,6 +2,8 @@
 
 ## What is One?
 
+https://toshusai.github.io/one-docs/
+
 One is a lightweight, easy-to-use framework for building web applications that is simple, transparent, and fast. It consists of a single class contained in a single file of 1.7KB and requires zero dependencies and no build step.
 
 ## Overview

@@ -125,6 +125,7 @@ export class One {
           };
           this[propertyName] = parent._f(attrValue as string, scopeObj);
           this._ae(handleChange);
+          parent._ae(handleChange);
         } else {
           const propertyValue = this._f(attrValue, scopeObj);
           const handleChange = () => {

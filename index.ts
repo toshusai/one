@@ -150,7 +150,9 @@ export class One {
           this._ae(handleChange);
         }
       } else if (attr.startsWith("@") && typeof attrValue == "string") {
-        const eventAttr = attr.replace("@", "");
+        const eventAttr = attr
+          .replace("@", "")
+          .replace(/-([a-z])/g, (g) => g[1].toUpperCase());
         if (parent) {
           this._emits.addEventListener(eventAttr, (e) => {
             const customEvent = e as CustomEvent;

@@ -228,6 +228,11 @@ export class One {
         this._ae(onChange);
         onChange();
         end = true;
+      } else {
+        const propertyName = attr as keyof this;
+        if (typeof this[propertyName] == "string") {
+          this[propertyName] = attrValue as any;
+        }
       }
     });
 

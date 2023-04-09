@@ -2,26 +2,23 @@
 
 ## What is One?
 
-One is a simple, lightweight, and fast framework for building web applications.
-It is contained in a single file of 1.7KB and requires zero dependencies and no build step.
+One is a lightweight, easy-to-use framework for building web applications that is simple, transparent, and fast. It consists of a single class contained in a single file of 1.7KB and requires zero dependencies and no build step.
 
-## Contents
+## Overview
 
-One is a lightweight and easy-to-use framework for building web applications. What sets One apart is its focus on simplicity and transparency - everything is done within a single class.
-
-At only 11KB in size (1.7KB when gzip compressed), the class includes implementation of basic features found in modern frameworks, such as if statements, for loops, slots, and props. With zero dependencies and no build step required.
+One is a lightweight framework that makes it easy to build web applications with its focus on simplicity and transparency. The entire framework is contained within a single class, making it easy to use and understand. At only 11KB TypeScript in size (1.7KB JavaScript when gzip compressed), the class includes implementation of basic features found in modern frameworks, such as if statements, for loops, slots, and props. With zero dependencies and no build step required, One is a great choice for building small to medium-sized web applications.
 
 ## How to use
 
-### Installation
+Installation
 
 ```bash
 npm install @toshusai/one
 ```
 
-### Usage
+## Usage
 
-You may inherit the `One` class and implement the template method.
+To use One, simply inherit the One class and implement the template method.
 
 ```ts
 import { One } from "@toshusai/one";
@@ -44,13 +41,15 @@ const element = document.getElementById("app")!;
 new BasicComponent().mount(element);
 ```
 
-## Supported features
+## Features
 
-- `v-if` If statements
-- `v-for` For loops
-- `<slot></slot>` Multiple slots
-- `:value="value"` Two-way binding
-- `@click="onClick"` Event listeners
+One supports the following features:
+
+- `v-if` for if statements
+- `v-for` for for loops
+- `<slot></slot>` for multiple slots
+- `:value="value"` for two-way binding
+- `@click="onClick"` for event listeners
 
 ## License
 

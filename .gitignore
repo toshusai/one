@@ -1,5 +1,5 @@
 node_modules
 index.js
-index.cjs
-index.esm.js
+index.cjs*
+index.esm.js*
 index.d.ts

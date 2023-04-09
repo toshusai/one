@@ -172,13 +172,13 @@ export class One {
           });
         }
         el.removeAttribute(attr);
-      } else if (attr == "v-text" && typeof attrValue == "string") {
+      } else if (attr == "-text" && typeof attrValue == "string") {
         const handleChange = () => {
           el.innerHTML = this._f(attrValue, scopeObj);
         };
         this._ae(handleChange);
         handleChange();
-      } else if (attr == "v-if" && typeof attrValue == "string") {
+      } else if (attr == "-if" && typeof attrValue == "string") {
         const parentNode = el.parentNode;
         if (!parentNode) return;
         let ifComment = document.createComment("if");
@@ -205,16 +205,16 @@ export class One {
             hide();
           }
         });
-      } else if (attr == "v-for") {
+      } else if (attr == "-for") {
         let f = attrValue.split(" in ");
         let tmpl = el.cloneNode(true) as HTMLElement;
-        tmpl.removeAttribute("v-for");
+        tmpl.removeAttribute("-for");
         let scopeObject: any = {};
         const parentNode = el.parentNode;
         if (!parentNode) return;
-        let forStart = document.createComment("for");
+        let forStart = document.createComment("for-s");
         parentNode.insertBefore(forStart, el);
-        let forEnd = document.createComment("for-end");
+        let forEnd = document.createComment("for-e");
         parentNode.insertBefore(forEnd, el.nextSibling);
         el = parentNode.removeChild(el);
         const onChange = () => {

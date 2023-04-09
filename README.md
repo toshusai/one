@@ -45,8 +45,8 @@ new BasicComponent().mount(element);
 
 One supports the following features:
 
-- `v-if` for if statements
-- `v-for` for for loops
+- `-if` for if statements
+- `-for` for for loops
 - `<slot></slot>` for multiple slots
 - `:value="value"` for two-way binding
 - `@click="onClick"` for event listeners

@@ -7,6 +7,8 @@ export class One {
    */
   public deps: Record<string, typeof One> = {};
 
+  public els: HTMLElement[] = [];
+
   /**
    * Render the component
    * @param el

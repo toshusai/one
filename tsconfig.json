@@ -1,6 +1,8 @@
 {
   "files": ["index.ts"],
   "compilerOptions": {
+    "baseUrl": ".",
+    "typeRoots": ["node_modules/@types"],
     "target": "ES6",
     "strict": true
   }

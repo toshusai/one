@@ -115,15 +115,23 @@ export class One {
       const attrValue = el.getAttribute(attr);
       if (attrValue === null) return;
       if (attr.startsWith(":")) {
-        attr = attr.replace(":", "").replace(/-([a-z])/g, (g) => {
-          return g[1].toUpperCase();
-        });
+        const isTwoWay = attr.startsWith("::");
+        attr = attr
+          .replace(/:/g, "")
+          .replace(/-([a-z])/g, (g) => g[1].toUpperCase());
         const propertyName = attr as keyof this;
         if (parent && this[propertyName] !== undefined) {
           const handleChange = () => {
             this._event.removeEventListener("change", handleChange);
-            this[propertyName] = parent._f(attrValue as string, scopeObj);
+            parent._event.removeEventListener("change", handleChange);
+            const parentKey = attrValue as keyof One;
+            if (isTwoWay && parent[parentKey]) {
+              parent[parentKey] = this[propertyName] as any;
+            } else {
+              this[propertyName] = parent._f(attrValue as string, scopeObj);
+            }
             this._ae(handleChange);
+            parent._ae(handleChange);
           };
           this[propertyName] = parent._f(attrValue as string, scopeObj);
           this._ae(handleChange);

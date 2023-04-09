@@ -53,6 +53,14 @@ One supports the following features:
 - `:value="value"` for two-way binding
 - `@click="onClick"` for event listeners
 
+## Documentation
+
+documentation is available on the GitHub Pages site.
+https://toshusai.github.io/one-docs/
+
+documentation source code is available on GitHub
+https://github.com/toshusai/one-docs
+
 ## License
 
 MIT License

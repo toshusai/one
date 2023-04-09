@@ -114,7 +114,16 @@ export class One {
       if (attrValue === null) return;
       if (attr.startsWith(":")) {
         attr = attr.replace(":", "");
-        if (!parent) {
+        const propertyName = attr as keyof this;
+        if (parent && this[propertyName] !== undefined) {
+          const handleChange = () => {
+            this._event.removeEventListener("change", handleChange);
+            this[propertyName] = parent._f(attrValue as string, scopeObj);
+            this._ae(handleChange);
+          };
+          this[propertyName] = parent._f(attrValue as string, scopeObj);
+          this._ae(handleChange);
+        } else {
           const propertyValue = this._f(attrValue, scopeObj);
           const handleChange = () => {
             if (typeof propertyValue == "boolean") {
@@ -133,15 +142,6 @@ export class One {
             }
           };
           handleChange();
-          this._ae(handleChange);
-        } else if (this[attr as keyof this] !== undefined) {
-          const key = attr as keyof this;
-          const handleChange = () => {
-            this._event.removeEventListener("change", handleChange);
-            this[key] = parent._f(attrValue as string, scopeObj);
-            this._ae(handleChange);
-          };
-          this[key] = parent._f(attrValue as string, scopeObj);
           this._ae(handleChange);
         }
       } else if (attr.startsWith("@") && typeof attrValue == "string") {

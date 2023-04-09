@@ -115,7 +115,9 @@ export class One {
       const attrValue = el.getAttribute(attr);
       if (attrValue === null) return;
       if (attr.startsWith(":")) {
-        attr = attr.replace(":", "");
+        attr = attr.replace(":", "").replace(/-([a-z])/g, (g) => {
+          return g[1].toUpperCase();
+        });
         const propertyName = attr as keyof this;
         if (parent && this[propertyName] !== undefined) {
           const handleChange = () => {
@@ -272,6 +274,7 @@ export class One {
         children.push(parent.insertBefore(el.childNodes[0], el) as HTMLElement);
       }
       parent.removeChild(el);
+      this.els = children;
       return { "": children };
     }
     return { "": [el] };

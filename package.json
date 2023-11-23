@@ -4,11 +4,15 @@
   "description": "a js framework in an 1.7KB one class",
   "author": "toshusai",
   "license": "MIT",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
+    "build:base": "esbuild index.ts --bundle --minify",
+    "build:cjs": "npm run build:base -- --format=cjs --outdir=dist/cjs",
+    "build:esm": "npm run build:base -- --format=esm --outdir=dist/esm",
     "tsc": "tsc --project tsconfig.json --declaration",
-    "build": "esbuild index.ts --bundle --outfile=index.js --minify",
+    "build": "npm run tsc --oudDir=dist/types && npm run build:cjs && npm run build:esm ",
     "prepublish": "npm run build"
   },
   "devDependencies": {

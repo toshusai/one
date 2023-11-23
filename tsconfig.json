@@ -4,6 +4,10 @@
     "baseUrl": ".",
     "typeRoots": ["node_modules/@types"],
     "target": "ES6",
-    "strict": true
+    "strict": true,
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "emitDeclarationOnly": true
   }
 }

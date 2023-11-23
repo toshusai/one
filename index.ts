@@ -137,8 +137,8 @@ export class One {
           this._ae(handleChange);
           parent._ae(handleChange);
         } else {
-          const propertyValue = this._f(attrValue, scopeObj);
           const handleChange = () => {
+            const propertyValue = this._f(attrValue, scopeObj);
             if (typeof propertyValue == "boolean") {
               if (propertyValue) {
                 el.setAttribute(attr, "");

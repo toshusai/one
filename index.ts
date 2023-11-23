@@ -116,6 +116,7 @@ export class One {
       if (attrValue === null) return;
       if (attr.startsWith(":")) {
         const isTwoWay = attr.startsWith("::");
+        el.removeAttribute(attr);
         attr = attr
           .replace(/:/g, "")
           .replace(/-([a-z])/g, (g) => g[1].toUpperCase());
@@ -158,6 +159,7 @@ export class One {
           this._ae(handleChange);
         }
       } else if (attr.startsWith("@") && typeof attrValue == "string") {
+        el.removeAttribute(attr);
         const eventAttr = attr
           .replace("@", "")
           .replace(/-([a-z])/g, (g) => g[1].toUpperCase());
@@ -173,12 +175,14 @@ export class One {
         }
         el.removeAttribute(attr);
       } else if (attr == "-text" && typeof attrValue == "string") {
+        el.removeAttribute(attr);
         const handleChange = () => {
           el.innerHTML = this._f(attrValue, scopeObj);
         };
         this._ae(handleChange);
         handleChange();
       } else if (attr == "-if" && typeof attrValue == "string") {
+        el.removeAttribute(attr);
         const parentNode = el.parentNode;
         if (!parentNode) return;
         let ifComment = document.createComment("if");
@@ -206,6 +210,7 @@ export class One {
           }
         });
       } else if (attr == "-for") {
+        el.removeAttribute(attr);
         let f = attrValue.split(" in ");
         let tmpl = el.cloneNode(true) as HTMLElement;
         tmpl.removeAttribute("-for");

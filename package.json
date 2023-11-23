@@ -7,11 +7,8 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "build:base": "esbuild index.ts --bundle --minify",
-    "build:cjs": "npm run build:base -- --format=cjs --outfile=index.cjs",
-    "build:esm": "npm run build:base -- --format=esm --outfile=index.esm.js",
     "tsc": "tsc --project tsconfig.json --declaration",
-    "build": "npm run build:cjs && npm run build:esm && npm run tsc",
+    "build": "esbuild index.ts --bundle --outfile=index.js --minify",
     "prepublish": "npm run build"
   },
   "devDependencies": {
